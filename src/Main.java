@@ -1,7 +1,8 @@
    
 
 	import java.util.Map;
- 	import java.net.URI;
+import java.awt.EventQueue;
+import java.net.URI;
     import org.apache.http.HttpEntity;
     import org.apache.http.HttpResponse;
     import org.apache.http.client.HttpClient;
@@ -11,7 +12,9 @@
     import org.apache.http.impl.client.DefaultHttpClient;
     import org.apache.http.util.EntityUtils;
     import com.fasterxml.jackson.databind.ObjectMapper;
-    import com.fasterxml.jackson.core.JsonParser;
+import com.namang.gui.Run;
+import com.namang.gui.Window;
+import com.fasterxml.jackson.core.JsonParser;
     import com.fasterxml.jackson.core.JsonParseException;
     import com.fasterxml.jackson.core.type.TypeReference;
     import com.fasterxml.jackson.core.type.ResolvedType;
@@ -50,6 +53,7 @@
                 HttpEntity entity = response.getEntity();
                 
                 String str=null;
+                System.out.println("HI");
 
                 if (entity != null)
                 {
@@ -57,7 +61,13 @@
                     System.out.println(str);
                     
                 }
-                
+               
+
+        					
+        		Window frame = new Window();
+        		frame.setVisible(true);
+
+               
                 byte[] jsonData = str.getBytes();
                 
                 ObjectMapper objectMapper = new ObjectMapper();
