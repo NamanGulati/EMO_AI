@@ -63,14 +63,14 @@
         		frame.setVisible(true);
 
                
-                byte[] jsonData = str.getBytes();
+                byte [] jsonData = str.getBytes();
                 
                 ObjectMapper objectMapper = new ObjectMapper();
                  
 
-                Emotions e=objectMapper.readValue(str, Emotions.class);
+                Emotions e = objectMapper.readValue(str, Emotions.class);
 
-                System.out.println(e.neutral);
+                System.out.println(e);
                 
             }
             
