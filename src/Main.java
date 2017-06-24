@@ -1,8 +1,8 @@
    
 
 	import java.util.Map;
-import java.awt.EventQueue;
-import java.net.URI;
+	import java.awt.EventQueue;
+	import java.net.URI;
     import org.apache.http.HttpEntity;
     import org.apache.http.HttpResponse;
     import org.apache.http.client.HttpClient;
@@ -12,9 +12,9 @@ import java.net.URI;
     import org.apache.http.impl.client.DefaultHttpClient;
     import org.apache.http.util.EntityUtils;
     import com.fasterxml.jackson.databind.ObjectMapper;
-import com.namang.gui.Run;
-import com.namang.gui.Window;
-import com.fasterxml.jackson.core.JsonParser;
+	import com.namang.gui.Run;
+	import com.namang.gui.Window;
+	import com.fasterxml.jackson.core.JsonParser;
     import com.fasterxml.jackson.core.JsonParseException;
     import com.fasterxml.jackson.core.type.TypeReference;
     import com.fasterxml.jackson.core.type.ResolvedType;
@@ -53,17 +53,13 @@ import com.fasterxml.jackson.core.JsonParser;
                 HttpEntity entity = response.getEntity();
                 
                 String str=null;
-                System.out.println("HI");
-
+                System.out.println("HELLO");;
                 if (entity != null)
                 {
                 	str=EntityUtils.toString(entity);
                     System.out.println(str);
-                    
                 }
-               
-
-        					
+                
         		Window frame = new Window();
         		frame.setVisible(true);
 
@@ -73,7 +69,7 @@ import com.fasterxml.jackson.core.JsonParser;
                 ObjectMapper objectMapper = new ObjectMapper();
                  
 
-                Emotions e=objectMapper.readValue(jsonData, Emotions.class);
+                Emotions e=objectMapper.readValue(str, Emotions.class);
 
                 System.out.println(e.neutral);
                 
