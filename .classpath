@@ -11,6 +11,6 @@
 	<classpathentry kind="lib" path="json-simple-1.1.1.jar"/>
 	<classpathentry kind="lib" path="jackson-core-2.9.0.pr4.jar"/>
 	<classpathentry kind="lib" path="jackson-databind-2.8.9.jar"/>
-	<classpathentry kind="lib" path="jackson-annotations-2.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Kyle Pinto/Documents/Other Documents/Global AI Hackathon/apache-http/jackson-annotations-2.9.0.pr4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

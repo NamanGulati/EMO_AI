@@ -1,4 +1,4 @@
-    
+   
 
 	import java.util.Map;
  	import java.net.URI;
@@ -25,7 +25,7 @@
         public static void main(String[] args)
         {
             HttpClient httpClient = new DefaultHttpClient();
-
+            
             try
             {
                 // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
@@ -66,11 +66,13 @@
                 Emotions e=objectMapper.readValue(jsonData, Emotions.class);
 
                 System.out.println(e.neutral);
+                
             }
             
             catch (Exception e)
             {
                 System.out.println(e.getMessage());
+                
             }
         }
     }
