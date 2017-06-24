@@ -1,6 +1,4 @@
-   
-
-	import java.util.Map;
+   	import java.util.Map;
  	import java.net.URI;
     import org.apache.http.HttpEntity;
     import org.apache.http.HttpResponse;
@@ -50,6 +48,7 @@
                 HttpEntity entity = response.getEntity();
                 
                 String str=null;
+                
 
                 if (entity != null)
                 {
@@ -63,7 +62,7 @@
                 ObjectMapper objectMapper = new ObjectMapper();
                  
 
-                Emotions e=objectMapper.readValue(jsonData, Emotions.class);
+                Emotions e=objectMapper.readValue(entity.getContent(), Emotions.class);
 
                 System.out.println(e.neutral);
                 

@@ -1,4 +1,4 @@
-
+/*
 public class Employee {
 	private String Employee = null; 
 	private Int age = 0; 
@@ -7,4 +7,4 @@ public class Employee {
 	private String pathtoimage = null; 
 	
 
-}
+}*/
