@@ -1,25 +1,29 @@
    // import com.fasterxml.jackson.core.JsonParseException;
 
-public class Emotions {
-	/*
-	int height;
-	int left;
-	int top;
-	int width;
-	int [] faceRectangle;
-	int [] scores;
-	*/
-	double anger;
-	double contempt;
-	double disgust;
-	double fear;
-	double happiness;
-	double neutral;
-	double sadness;
-	double surprise;
+public class Emotions
+{
+	faceRectangle faceRectangle;
+	scores scores;
 	
-	public Emotions() {
+	public Emotions()
+	{
 		
+	}
+
+	public faceRectangle getFaceRectangle() {
+		return faceRectangle;
+	}
+
+	public void setFaceRectangle(faceRectangle faceRectangle) {
+		this.faceRectangle = faceRectangle;
+	}
+
+	public scores getScores() {
+		return scores;
+	}
+
+	public void setScores(scores scores) {
+		this.scores = scores;
 	}
 
 }
