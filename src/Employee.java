@@ -6,7 +6,7 @@ public class Employee
 	  private String position = null; 
 	  private Emotions e;
 	  private String path = null;
-	
+	  private boolean isSelected=false;
 	
 	private Employee(String employee, int age, String position, Emotions e, String path) {
 		
