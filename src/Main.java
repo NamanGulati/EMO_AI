@@ -42,27 +42,22 @@
                 StringEntity reqEntity = new StringEntity("{ \"url\": \"http://dreamicus.com/data/face/face-04.jpg\" }");
                 request.setEntity(reqEntity);
                 
-
                 HttpResponse response = httpClient.execute(request);
-                
                 HttpEntity entity = response.getEntity();
                 
-                String str=null;
-                
-
+                String str = null;
+                System.out.println("HI");
                 if (entity != null)
                 {
-                	str=EntityUtils.toString(entity);
+                	str = EntityUtils.toString(entity);
                     System.out.println(str);
-                    
                 }
                 
-                byte[] jsonData = str.getBytes();
+                //byte[] jsonData = str.getBytes();
                 
                 ObjectMapper objectMapper = new ObjectMapper();
                  
-
-                Emotions e=objectMapper.readValue(entity.getContent(), Emotions.class);
+                Emotions e = objectMapper.readValue(str, Emotions.class);
 
                 System.out.println(e.neutral);
                 
@@ -71,7 +66,6 @@
             catch (Exception e)
             {
                 System.out.println(e.getMessage());
-                
             }
         }
     }
