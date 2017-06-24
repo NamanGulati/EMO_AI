@@ -1,13 +1,11 @@
-
-import java.awt.Color;
-
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class Window extends JFrame {
 
@@ -16,6 +14,7 @@ public class Window extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTextField txtEnterEmployeeName;
 
 	/**
 	 * Launch the application.
@@ -33,14 +32,14 @@ public class Window extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		txtEnterEmployeeName = new JTextField();
+		txtEnterEmployeeName.setText("Enter Employee Name");
+		txtEnterEmployeeName.setBounds(128, 200, 123, 20);
+		contentPane.add(txtEnterEmployeeName);
+		txtEnterEmployeeName.setColumns(10);
+		
 		JButton btnSubmit = new JButton("Submit");
-		btnSubmit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				contentPane.setBackground(Color.GREEN);
-			}
-		});
-		btnSubmit.setBounds(259, 204, 89, 23);
+		btnSubmit.setBounds(150, 227, 89, 23);
 		contentPane.add(btnSubmit);
 	}
-
 }
