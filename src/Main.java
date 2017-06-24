@@ -12,8 +12,6 @@
     import org.apache.http.impl.client.DefaultHttpClient;
     import org.apache.http.util.EntityUtils;
     import com.fasterxml.jackson.databind.ObjectMapper;
-	import com.namang.gui.Run;
-	import com.namang.gui.Window;
 	import com.fasterxml.jackson.core.JsonParser;
     import com.fasterxml.jackson.core.JsonParseException;
     import com.fasterxml.jackson.core.type.TypeReference;
@@ -53,10 +51,11 @@
                 HttpEntity entity = response.getEntity();
                 
                 String str=null;
-                System.out.println("HELLO");;
+                System.out.println("HELLO");
+                
                 if (entity != null)
                 {
-                	str=EntityUtils.toString(entity);
+                	str = EntityUtils.toString(entity);
                     System.out.println(str);
                 }
                 
