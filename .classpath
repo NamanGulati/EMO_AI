@@ -8,7 +8,8 @@
 	<classpathentry kind="lib" path="httpcore-4.4.6.jar"/>
 	<classpathentry kind="lib" path="httpcore-ab-4.4.6.jar"/>
 	<classpathentry kind="lib" path="httpcore-nio-4.4.6.jar"/>
-	<classpathentry kind="lib" path="jackson-databind-2.8.9.jar"/>
 	<classpathentry kind="lib" path="json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="jackson-core-2.9.0.pr4.jar"/>
+	<classpathentry kind="lib" path="jackson-databind-2.8.9.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
