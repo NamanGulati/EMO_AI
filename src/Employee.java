@@ -2,13 +2,13 @@ public class Employee
 {
   
 	  private String name = null; 
-	  private int age = 0; 
+	  private String age = null; 
 	  private String position = null; 
 	  private Emotions e;
 	  private String path = null;
 	  boolean isSelected=false;
 	
-	Employee(String name, int age, String position, Emotions e, String path) {
+	Employee(String name, String age, String position, Emotions e, String path) {
 		
 		this.name = name;
 		this.age = age;
@@ -25,11 +25,11 @@ public class Employee
 		this.name = name;
 	}
 
-	public int getAge() {
+	public String getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
 

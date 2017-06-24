@@ -22,10 +22,14 @@
     public class Main
     {
     	
+    	static Employee [] employees = new Employee[10];
+    	static int count = 0;
+    	
+    	// Test array
+    	static String [] test = {"Leo", "42", "CEO", "{ \"url\": \"http://dreamicus.com/data/face/face-04.jpg\" }"};
     	
         public static void main(String[] args)
         {
-        	
             /*
         	Window frame = new Window();
     		frame.setVisible(true);
@@ -33,8 +37,12 @@
             try
             {
                 
-                determineEmotions("{ \"url\": \"http://dreamicus.com/data/face/face-04.jpg\" }");
-                
+                addEmployee(test, determineEmotions("{ \"url\": \"http://dreamicus.com/data/face/face-04.jpg\" }"));
+                System.out.println(employees[0].getName());
+                System.out.println(employees[0].getAge());
+                System.out.println(employees[0].getPosition());
+                System.out.println(employees[0].getE().getScores().getNeutral());
+                System.out.println(employees[0].getPath());
             }
             
             catch (Exception e)
@@ -43,7 +51,7 @@
             }
         }
         
-        public static void determineEmotions(String imagePath) throws Exception
+        public static Emotions determineEmotions(String imagePath) throws Exception
         {	
         	HttpClient httpClient = new DefaultHttpClient();
         	//   NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
@@ -78,6 +86,11 @@
         	byte [] jsonData = str.getBytes();
             ObjectMapper objectMapper = new ObjectMapper();
             Emotions e = objectMapper.readValue(jsonData, Emotions.class);
-            System.out.println(e.scores.getHappiness());
+            return e;
+        }
+    
+        public static void addEmployee(String [] info, Emotions emos)
+        {
+        	employees[count] = new Employee(info[0], info[1], info[2], emos, info[3]);
         }
     }
