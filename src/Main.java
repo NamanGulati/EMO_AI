@@ -23,8 +23,11 @@
 
     public class Main
     {
+    	
+    	
         public static void main(String[] args)
         {
+        	
             HttpClient httpClient = new DefaultHttpClient();
             
             try
@@ -56,6 +59,7 @@
                 if (entity != null)
                 {
                 	str = EntityUtils.toString(entity);
+                	str = str.substring(1, str.length() - 1);
                     System.out.println(str);
                 }
                 
@@ -68,9 +72,9 @@
                 ObjectMapper objectMapper = new ObjectMapper();
                  
 
-                Emotions e = objectMapper.readValue(str, Emotions.class);
+                Emotions e = objectMapper.readValue(jsonData, Emotions.class);
 
-                System.out.println(e);
+                System.out.println(e.scores.getHappiness());
                 
             }
             
