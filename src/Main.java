@@ -30,10 +30,8 @@
     	
         public static void main(String[] args)
         {
-            /*
-        	Window frame = new Window();
-    		frame.setVisible(true);
-    		*/
+        	
+         
             try
             {
                 
@@ -43,11 +41,16 @@
                 System.out.println(employees[0].getPosition());
                 System.out.println(employees[0].getE().getScores().getNeutral());
                 System.out.println(employees[0].getPath());
+                
+            	Window frame = new Window(employees);
+        		frame.setVisible(true);
+
             }
             
             catch (Exception e)
             {
                 System.out.println(e.getMessage());
+        		e.printStackTrace(System.out);
             }
         }
         
@@ -91,6 +94,10 @@
     
         public static void addEmployee(String [] info, Emotions emos)
         {
-        	employees[count] = new Employee(info[0], info[1], info[2], emos, info[3]);
+        	//employees[count] = new Employee(info[0], info[1], info[2], emos, info[3]);
+        	for(int i=0;i<employees.length-1;i++){
+        		employees[i]=new Employee("Bob","54","Manager",emos,"C");
+        	}
+        	employees[employees.length-1]=new Employee("Bill","54","Manager",emos,"C");
         }
     }

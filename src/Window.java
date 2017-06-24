@@ -1,5 +1,4 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -41,13 +40,11 @@ public class Window extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Window() {
+	Employee [] emp;
+	public Window(Employee[]emp) {
 	
-		Employee [] emp=new Employee[20];
-		for(int i=0;i<=emp.length-2;i++){
-			emp[i]=new Employee("bob",35,"manager",new Emotions(),"C:");
-		}
-		emp[emp.length-1]=new Employee("Joe",34,"CEO",new Emotions(),"C:");
+		this.emp=emp;
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -63,26 +60,65 @@ public class Window extends JFrame {
 		
 		JButton btnSubmit = new JButton("Submit");
 
-		
+
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				int index=-1;
 				String name = txtEnterEmployeeName.getText();
+				
 				for(int i=0;i<emp.length;i++){
 					if(name.equals(emp[i].getName())){
-						emp[i].setSelected(true);
+						index=i;
 						break;
 					}
+				/*	if(index==-1&&i==emp.length-1){
+						System.out.println("I didnt find yo dude");
+						
+					}*/
 							
 				}
 				
+				if(index!=-1)
+				loadText(index);
+						
 			}
 		});
-		int index=getIndexValue(emp);
+		
 		
 		btnSubmit.setBounds(150, 227, 89, 23);
 		contentPane.add(btnSubmit);
 		
+		
+		
+		btnAddEmployee = new JButton("Add Employee");
+		btnAddEmployee.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				btnAddEmployee.setEnabled(false);
+				txtpnName.setEnabled(false);
+				textPane.setEnabled(false);
+				txtpnAge.setEnabled(false);
+				textPane_1.setEnabled(false);
+				txtpnEmployeeEmotions.setEnabled(false);
+				txtpnPosition.setEnabled(false);
+				textPane_2.setBounds(69, 84, 113, 20);
+				textPane_2.setText(inputVariables().toString());
+				contentPane.add(textPane_2);
+				System.out.println();
+			}
+		});
+		btnAddEmployee.setBounds(268, 227, 103, 23);
+		contentPane.add(btnAddEmployee);
+		
+		
+		
+		
+
+		
+
+	}
+	
+	public void loadText(int index){
 		txtpnName = new JTextPane();
 		txtpnName.setText("Name:");
 		txtpnName.setBounds(10, 27, 49, 20);
@@ -108,16 +144,6 @@ public class Window extends JFrame {
 		txtpnEmployeeEmotions.setBounds(10, 115, 103, 20);
 		contentPane.add(txtpnEmployeeEmotions);
 		
-		btnAddEmployee = new JButton("Add Employee");
-		btnAddEmployee.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				inputVariables();
-				btnAddEmployee.setEnabled(false);
-			}
-		});
-		btnAddEmployee.setBounds(268, 227, 103, 23);
-		contentPane.add(btnAddEmployee);
-		
 		txtpnPosition = new JTextPane();
 		txtpnPosition.setText("Position");
 		txtpnPosition.setBounds(10, 84, 49, 20);
@@ -133,20 +159,8 @@ public class Window extends JFrame {
 		textPane_3.setText(emp[index].getDominantEmotions());
 		contentPane.add(textPane_3);
 		
-		
-
-		
-
 	}
 	
-	public int getIndexValue(Employee[]e){
-		int index=-1;
-		for(int i=0;i<e.length;i++){
-			if(e[i].isSelected)
-				index=i;
-		}
-		return index;
-	}
 	public String[] inputVariables(){
 		String [] arr=new String[4];
 		txtName = new JTextField();
