@@ -6,6 +6,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 
@@ -59,6 +60,16 @@ public class Window extends JFrame {
 		txtEnterEmployeeName.setColumns(10);
 		
 		JButton btnSubmit = new JButton("Submit");
+		
+		JTextPane txtpnOverallCompanyEmotion = new JTextPane();
+		txtpnOverallCompanyEmotion.setText("Overall Company Emotion:");
+		txtpnOverallCompanyEmotion.setBounds(55, 11, 226, 20);
+		contentPane.add(txtpnOverallCompanyEmotion);
+		
+		JTextPane textPane_4 = new JTextPane();
+		textPane_4.setBounds(311, 11, 123, 20);
+		textPane_4.setText(getCompanyEmotions());
+		contentPane.add(textPane_4);
 
 
 		btnSubmit.addActionListener(new ActionListener() {
@@ -114,10 +125,7 @@ public class Window extends JFrame {
 		btnAddEmployee.setBounds(268, 227, 103, 23);
 		contentPane.add(btnAddEmployee);
 		
-		JTextPane txtpnOverallCompanyEmotion = new JTextPane();
-		txtpnOverallCompanyEmotion.setText("Overall Company Emotion:");
-		txtpnOverallCompanyEmotion.setBounds(55, 11, 226, 20);
-		contentPane.add(txtpnOverallCompanyEmotion);
+		
 		
 		
 		
@@ -219,7 +227,7 @@ public class Window extends JFrame {
 				contentPane.remove(txtPosition);
 				contentPane.remove(txtPathToImage);
 				contentPane.remove(btnEnter);
-				System.out.println(arr[0]+arr[1]+arr[2]+arr[3]);
+				
 				
 			}
 		});
@@ -234,4 +242,105 @@ public class Window extends JFrame {
 		
 		
 	}
+	
+	public String getCompanyEmotions(){
+		if(emp[0]==null)
+			return "no employees added";
+		
+		String[]arr=new String[emp.length];
+		int[]nums=new int[arr.length];
+		for(int i =0;i<arr.length;i++){
+			arr[i]=emp[i].getDominantEmotions();
+			if(arr[i].compareTo("anger")==0){
+				nums[i]=1;
+			}
+			else if(arr[i].compareTo("contempt")==0){
+				nums[i]=2;
+			}
+			else if(arr[i].compareTo("disgust")==0){
+				nums[i]=3;
+			}
+			else if(arr[i].compareTo("fear")==0){
+				nums[i]=4;
+			}
+			else if(arr[i].compareTo("happiness")==0){
+				nums[i]=5;
+			}
+			else if(arr[i].compareTo("neutral")==0){
+				nums[i]=6;
+			}
+			else if(arr[i].compareTo("sadness")==0){
+				nums[i]=7;
+			}
+			else if(arr[i].compareTo("surprise")==0){
+				nums[i]=8;
+			}
+			
+			
+		}
+	int emotion=calcMode(nums);
+	
+	if(emotion==1)
+		return "anger";
+	else if(emotion==2)
+		return "contempt";
+	else if(emotion==3)
+		return "disgust";
+	else if(emotion==4)
+		return "fear";
+	else if(emotion==5)
+		return "happiness";
+	else if(emotion==6)
+		return "neutral";
+	else if(emotion==7)
+		return "sadness";
+	else if(emotion==8)
+		return "surprise";
+		
+	return null;
+	}
+	
+	public int calcMode(int[] nums)
+	  {
+	    int mode = 0;
+	    int[] tallies = new int[76];  /* array to hold the number of times each index occurs
+	                                   * Note: index 0 is not used */
+	    
+	    Arrays.sort(nums);
+	    
+	    for (int k = 1; k <= 75; k++)
+	    {
+	      for (int i = 0; i < nums.length; i++)
+	      {
+	        if (nums[i] == k)
+	        {
+	          tallies[k]++;  // count how many times each index occurs
+	        }
+	      }
+	      
+	      if (tallies[k] > mode)
+	      {
+	        mode = tallies[k];   // store max occurrances
+	      }
+	    }
+	    
+	    int modeCount = mode;
+	    
+	    if (mode == 1)
+	    {
+	     mode = 0;   // no mode
+	    }
+	    else
+	    {
+	      for (int j = 1; j < tallies.length; j++)
+	      {
+	        if (modeCount == tallies[j])   // find index of max occurances (index is the mode)
+	        {
+	          mode = j;
+	          break; // end loop once mode is found to prevent the value from being overwritten
+	        }
+	      }
+	    }
+	    return mode;
+	  }
 }

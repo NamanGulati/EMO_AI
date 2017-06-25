@@ -66,7 +66,28 @@ public class Employee
 	}
 	
 	public String getDominantEmotions(){
-		return "abc";
+		double [] emos = new double[8]; 
+		String [] feelings = {"contempt", "digust","fear","happiness","neutral","sadness","suprise","anger"};
+		emos[0]= e.scores.getContempt(); 
+	      emos[1]= e.scores.getDisgust(); 
+	      emos[2]= e.scores.getFear(); ;
+	      emos[3]= e.scores.getHappiness(); ; 
+	      emos[4]= e.scores.getNeutral(); ;
+	      emos[5]= e.scores.getSadness();
+	      emos[6] = e.scores.getSurprise();  
+	      emos[7]= e.scores.getAnger();
+	      double max = 0; 
+	      int index = 0; 
+	      for( int t = 0; t < emos.length; t++)
+	      {
+	        if (emos[t] > max)
+	        { 
+	          max = emos[t]; 
+	          index = t; 
+	        }
+	        
+	      }	
+	      return feelings[index];
 	}
   
   
