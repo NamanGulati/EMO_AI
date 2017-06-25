@@ -32,15 +32,10 @@
          
             try
             {
-            	
+            	populate();
             	Window frame = new Window(employees);
         		frame.setVisible(true);
-        		
-        		
-        		
-        		populate();
-                
-                
+        		                
             }
             
             catch (Exception e)
@@ -92,19 +87,12 @@
         public static void addEmployee(String [] info, Emotions emos)
         {
         	employees[count] = new Employee(info[0], info[1], info[2], emos, info[3]);
-        	System.out.println(employees[count]);
-        	System.out.println(employees[count].getName());
-            System.out.println(employees[count].getAge());
-            System.out.println(employees[count].getPosition());
-            System.out.println(employees[count].getE().getScores().getNeutral());
-            System.out.println(employees[count].getPath());
+        	System.out.println("Name:" + employees[count].getName());
+            System.out.println("Age:" + employees[count].getAge());
+            System.out.println("Position:" + employees[count].getPosition());
+            System.out.println("Sentiments:" + employees[count].getE().getScores().getNeutral());
+            System.out.println("");
             count++;
-        	/*
-        	for(int i=0;i<employees.length-1;i++){
-        		employees[i]=new Employee("Bob","54","Manager",emos,"C");
-        	}
-        	employees[employees.length-1]=new Employee("Bill","54","Manager",emos,"C");
-        	*/
         }
         
         public static void populate()
@@ -132,7 +120,7 @@
         	String [] employeeInfo6 = {"Benny", "34", "Auditor", "{ \"url\": \"http://www.oscarboy.com/wp-content/uploads/2016/03/cumberbatch.jpeg\" }"};
         	addEmployee(employeeInfo6, determineEmotions(employeeInfo6[3]));
         	
-        	String [] employeeInfo7 = {"Donald", "70", "Secretary", "{ \"url\": \"https://www.google.ca/search?q=disgust&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiR1uCw0dnUAhUM6YMKHUIFC0kQ_AUICigB&biw=1124&bih=641#imgrc=dOg9fa86r81IYM:\" }"};
+        	String [] employeeInfo7 = {"Donald", "70", "Secretary", "{ \"url\": \"http://religiondispatches.org/wp-content/uploads/2016/10/trump_disgust-690x460.jpg\" }"};
         	addEmployee(employeeInfo7, determineEmotions(employeeInfo7[3]));
         	}
         	catch (Exception e)
