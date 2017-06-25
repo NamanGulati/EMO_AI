@@ -46,6 +46,7 @@ public class Window extends JFrame {
 	 * Create the frame.
 	 */
 	Employee [] emp;
+	private JLabel lblPicture;
 	public Window(Employee[]emp) {
 	
 		this.emp=emp;
@@ -140,6 +141,8 @@ public class Window extends JFrame {
 		
 		
 		
+		
+		
 
 		
 
@@ -199,9 +202,9 @@ public class Window extends JFrame {
 		try {
 			url = new URL(emp[index].getPath());
 			ImageIcon image =new ImageIcon(url);
-			JLabel lblNewLabel = new JLabel("");
-			lblNewLabel.setBounds(325, 114, 50, 50);
-			contentPane.add(lblNewLabel);
+			lblPicture = new JLabel(image);
+			lblPicture.setBounds(268, 63, 128, 110);
+			contentPane.add(lblPicture);
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
