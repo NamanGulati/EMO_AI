@@ -93,8 +93,8 @@ public class Window extends JFrame {
 		btnAddEmployee = new JButton("Add Employee");
 		btnAddEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				btnAddEmployee.setEnabled(false);
+				contentPane.
+				/*btnAddEmployee.setEnabled(false);
 				txtpnName.setEnabled(false);
 				textPane.setEnabled(false);
 				txtpnAge.setEnabled(false);
@@ -102,9 +102,9 @@ public class Window extends JFrame {
 				txtpnEmployeeEmotions.setEnabled(false);
 				txtpnPosition.setEnabled(false);
 				textPane_2.setBounds(69, 84, 113, 20);
-				textPane_2.setText(inputVariables().toString());
-				contentPane.add(textPane_2);
-				System.out.println();
+				textPane_2.setEnabled(false)
+				contentPane.add(textPane_2);*/
+				System.out.println(inputVariables().toString());
 			}
 		});
 		btnAddEmployee.setBounds(268, 227, 103, 23);
@@ -141,7 +141,7 @@ public class Window extends JFrame {
 		
 		txtpnEmployeeEmotions = new JTextPane();
 		txtpnEmployeeEmotions.setText("Employee Emotions:");
-		txtpnEmployeeEmotions.setBounds(10, 115, 103, 20);
+		txtpnEmployeeEmotions.setBounds(10, 115, 120, 20);
 		contentPane.add(txtpnEmployeeEmotions);
 		
 		txtpnPosition = new JTextPane();
@@ -155,7 +155,7 @@ public class Window extends JFrame {
 		contentPane.add(textPane_2);
 		
 		textPane_3 = new JTextPane();
-		textPane_3.setBounds(123, 129, 116, 20);
+		textPane_3.setBounds(127, 115, 116, 20);
 		textPane_3.setText(emp[index].getDominantEmotions());
 		contentPane.add(textPane_3);
 		
@@ -193,19 +193,22 @@ public class Window extends JFrame {
 				arr[0]=txtName.getText();
 				arr[1]=txtAge.getText();
 				arr[2]=txtPosition.getText();
-				arr[4]=txtPathToImage.getText();
+				arr[3]=txtPathToImage.getText();
 				
-				txtName.setEnabled(false);
-				txtAge.setEnabled(false);
-				txtPosition.setEnabled(false);
-				txtPathToImage.setEnabled(false);
-				btnEnter.setEnabled(false);
+				contentPane.remove(txtName);
+				contentPane.remove(txtAge);
+				contentPane.remove(txtPosition);
+				contentPane.remove(txtPathToImage);
+				contentPane.remove(btnEnter);
+				System.out.println(arr[0]+arr[1]+arr[2]+arr[3]);
+				
 			}
 		});
 		btnEnter.setBounds(207, 166, 89, 23);
 		contentPane.add(btnEnter);
-		return arr;
 		
+		return arr;
+
 		
 		
 	}
