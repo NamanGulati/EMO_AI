@@ -1,11 +1,15 @@
 
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Arrays;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
@@ -45,13 +49,17 @@ public class Window extends JFrame {
 	public Window(Employee[]emp) {
 	
 		this.emp=emp;
-
+		
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+
 		
 		txtEnterEmployeeName = new JTextField();
 		txtEnterEmployeeName.setText("Enter Employee Name");
@@ -118,12 +126,14 @@ public class Window extends JFrame {
 					}
 				}
 				inputVariables();
-				verify=true;
+				verify=false;
 				
 			}
 		});
 		btnAddEmployee.setBounds(268, 227, 103, 23);
 		contentPane.add(btnAddEmployee);
+		
+		
 		
 		
 		
@@ -185,6 +195,19 @@ public class Window extends JFrame {
 		textPane_3.setText(emp[index].getDominantEmotions());
 		contentPane.add(textPane_3);
 		
+		URL url;
+		try {
+			url = new URL(emp[index].getPath());
+			ImageIcon image =new ImageIcon(url);
+			JLabel lblNewLabel = new JLabel("");
+			lblNewLabel.setBounds(325, 114, 50, 50);
+			contentPane.add(lblNewLabel);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 	
 	public String[] inputVariables(){
@@ -228,7 +251,7 @@ public class Window extends JFrame {
 				contentPane.remove(txtPathToImage);
 				contentPane.remove(btnEnter);
 				
-				
+				verify=true;
 			}
 		});
 		btnEnter.setBounds(207, 166, 89, 23);
