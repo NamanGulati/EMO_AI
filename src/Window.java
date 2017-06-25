@@ -94,22 +94,30 @@ public class Window extends JFrame {
 		btnAddEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-				/*btnAddEmployee.setEnabled(false);
-				txtpnName.setEnabled(false);
-				textPane.setEnabled(false);
-				txtpnAge.setEnabled(false);
-				textPane_1.setEnabled(false);
-				txtpnEmployeeEmotions.setEnabled(false);
-				txtpnPosition.setEnabled(false);
-				textPane_2.setBounds(69, 84, 113, 20);
-				textPane_2.setEnabled(false)
-				contentPane.add(textPane_2);*/
+				if(txtpnAge!=null){
+					if(txtpnAge.isEnabled()){
+				contentPane.remove(txtpnName);
+				
+				contentPane.remove(textPane);
+				contentPane.remove(txtpnAge);
+				contentPane.remove(textPane_1);
+				contentPane.remove(txtpnEmployeeEmotions);
+				contentPane.remove(txtpnPosition);
+				contentPane.remove(textPane_2);
+					}
+				}
 				inputVariables();
 				verify=true;
+				
 			}
 		});
 		btnAddEmployee.setBounds(268, 227, 103, 23);
 		contentPane.add(btnAddEmployee);
+		
+		JTextPane txtpnOverallCompanyEmotion = new JTextPane();
+		txtpnOverallCompanyEmotion.setText("Overall Company Emotion:");
+		txtpnOverallCompanyEmotion.setBounds(55, 11, 226, 20);
+		contentPane.add(txtpnOverallCompanyEmotion);
 		
 		
 		
@@ -120,6 +128,15 @@ public class Window extends JFrame {
 	}
 	
 	public void loadText(int index){
+		
+		if(txtName!=null&&txtName.isEnabled()){
+			contentPane.remove(txtName);
+			contentPane.remove(txtAge);
+			contentPane.remove(txtPosition);
+			contentPane.remove(txtPathToImage);
+			contentPane.remove(btnEnter);
+		}
+		
 		txtpnName = new JTextPane();
 		txtpnName.setText("Name:");
 		txtpnName.setBounds(10, 27, 49, 20);
@@ -195,6 +212,7 @@ public class Window extends JFrame {
 				arr[1]=txtAge.getText();
 				arr[2]=txtPosition.getText();
 				arr[3]=txtPathToImage.getText();
+				
 				
 				contentPane.remove(txtName);
 				contentPane.remove(txtAge);
