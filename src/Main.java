@@ -1,4 +1,5 @@
    	import java.util.Map;
+   	import java.util.Arrays;
 	import java.awt.EventQueue;
 	import java.net.URI;
     import org.apache.http.HttpEntity;
@@ -25,12 +26,9 @@
     	static Employee [] employees = new Employee[10];
     	static int count = 0;
     	
-    	// Test array
-    	static String [] test = {"Leo", "42", "CEO", "{ \"url\": \"http://dreamicus.com/data/face/face-04.jpg\" }"};
     	
         public static void main(String[] args)
         {
-        	
          
             try
             {
@@ -38,19 +36,16 @@
             	Window frame = new Window(employees);
         		frame.setVisible(true);
         		
-        		String [] arr = null;
-        			
-        		while(arr == null);
+        		String [] employeeInfo = null;
+        		
+        		while(employeeInfo == null);
         		{
-        			arr = frame.inputVariables();
+        			employeeInfo = frame.inputVariables();
         		}
         		
-        		addEmployee(arr, determineEmotions(arr[3]));
-                System.out.println(employees[0].getName());
-                System.out.println(employees[0].getAge());
-                System.out.println(employees[0].getPosition());
-                System.out.println(employees[0].getE().getScores().getNeutral());
-                System.out.println(employees[0].getPath());
+        		System.out.println(Arrays.toString(employeeInfo));
+        		addEmployee(employeeInfo, determineEmotions(employeeInfo[3]));
+                
                 
             }
             
@@ -66,7 +61,8 @@
         	HttpClient httpClient = new DefaultHttpClient();
         	//   NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
             //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-            //   URL below with "westcentralus".
+            //   URL below with "westcentralus"
+        	
             URIBuilder uriBuilder = new URIBuilder("https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize");
 
             URI uri = uriBuilder.build();
@@ -102,6 +98,12 @@
         public static void addEmployee(String [] info, Emotions emos)
         {
         	employees[count] = new Employee(info[0], info[1], info[2], emos, info[3]);
+        	System.out.println(employees[count]);
+        	System.out.println(employees[count].getName());
+            System.out.println(employees[count].getAge());
+            System.out.println(employees[count].getPosition());
+            System.out.println(employees[count].getE().getScores().getNeutral());
+            System.out.println(employees[count].getPath());
         	/*
         	for(int i=0;i<employees.length-1;i++){
         		employees[i]=new Employee("Bob","54","Manager",emos,"C");
