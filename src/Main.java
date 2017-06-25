@@ -23,7 +23,7 @@
     public class Main
     {
     	
-    	static Employee [] employees = new Employee[10];
+    	static Employee [] employees = new Employee[8];
     	static int count = 0;
     	
     	
@@ -36,15 +36,9 @@
             	Window frame = new Window(employees);
         		frame.setVisible(true);
         		
-        		String [] employeeInfo = null;
         		
-        		while(employeeInfo == null);
-        		{
-        			employeeInfo = frame.inputVariables();
-        		}
         		
-        		System.out.println(Arrays.toString(employeeInfo));
-        		addEmployee(employeeInfo, determineEmotions(employeeInfo[3]));
+        		populate();
                 
                 
             }
@@ -104,11 +98,48 @@
             System.out.println(employees[count].getPosition());
             System.out.println(employees[count].getE().getScores().getNeutral());
             System.out.println(employees[count].getPath());
+            count++;
         	/*
         	for(int i=0;i<employees.length-1;i++){
         		employees[i]=new Employee("Bob","54","Manager",emos,"C");
         	}
         	employees[employees.length-1]=new Employee("Bill","54","Manager",emos,"C");
         	*/
+        }
+        
+        public static void populate()
+        {
+        	try
+        	{
+        	String [] employeeInfo = {"Tyrone", "56", "CEO", "{ \"url\": \"https://s-media-cache-ak0.pinimg.com/originals/41/88/e7/4188e742647bb9bca78a7e9dc46ccaa9.jpg\" }"};
+        	addEmployee(employeeInfo, determineEmotions(employeeInfo[3]));
+        	
+        	String [] employeeInfo1 = {"Simon", "67", "Janitor", "{ \"url\": \"http://debmillswriter.com/wp-content/uploads/2016/03/Blog-Contempt-2-liveforchristresources.jpg\" }"};
+        	addEmployee(employeeInfo1, determineEmotions(employeeInfo1[3]));
+        	
+        	String [] employeeInfo2 = {"Jessica", "17", "Chauffeur", "{ \"url\": \"http://cdn2.stylecraze.com/wp-content/uploads/2015/05/Surprised-Face-exercies.jpg\" }"};
+        	addEmployee(employeeInfo2, determineEmotions(employeeInfo2[3]));
+        	
+        	String [] employeeInfo3 = {"Leo", "42", "VP", "{ \"url\": \"http://i3.kym-cdn.com/entries/icons/original/000/019/712/48029_ori.jpg\" }"};
+        	addEmployee(employeeInfo3, determineEmotions(employeeInfo3[3]));
+        	
+        	String [] employeeInfo4 = {"Sarah", "17", "HR Manager", "{ \"url\": \"http://www.study-body-language.com/images/sadness.jpg\" }"};
+        	addEmployee(employeeInfo4, determineEmotions(employeeInfo4[3]));
+        	
+        	String [] employeeInfo5 = {"Chris", "47", "Chef", "{ \"url\": \"https://previews.123rf.com/images/zzuzya/zzuzya1604/zzuzya160400011/57053528-Man-head-shot-with-neutral-face-expression-and-white-background-Stock-Photo.jpg\" }"};
+        	addEmployee(employeeInfo5, determineEmotions(employeeInfo5[3]));
+        	
+        	String [] employeeInfo6 = {"Benny", "34", "Auditor", "{ \"url\": \"http://www.oscarboy.com/wp-content/uploads/2016/03/cumberbatch.jpeg\" }"};
+        	addEmployee(employeeInfo6, determineEmotions(employeeInfo6[3]));
+        	
+        	String [] employeeInfo7 = {"Donald", "70", "Secretary", "{ \"url\": \"https://www.google.ca/search?q=disgust&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiR1uCw0dnUAhUM6YMKHUIFC0kQ_AUICigB&biw=1124&bih=641#imgrc=dOg9fa86r81IYM:\" }"};
+        	addEmployee(employeeInfo7, determineEmotions(employeeInfo7[3]));
+        	}
+        	catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+        		e.printStackTrace(System.out);
+            }
+        	
         }
     }
