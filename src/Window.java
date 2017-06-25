@@ -36,7 +36,7 @@ public class Window extends JFrame {
 	 * Launch the application.
 	 */
 	
-
+	boolean verify=false;
 	/**
 	 * Create the frame.
 	 */
@@ -93,7 +93,7 @@ public class Window extends JFrame {
 		btnAddEmployee = new JButton("Add Employee");
 		btnAddEmployee.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				contentPane.
+			
 				/*btnAddEmployee.setEnabled(false);
 				txtpnName.setEnabled(false);
 				textPane.setEnabled(false);
@@ -104,7 +104,8 @@ public class Window extends JFrame {
 				textPane_2.setBounds(69, 84, 113, 20);
 				textPane_2.setEnabled(false)
 				contentPane.add(textPane_2);*/
-				System.out.println(inputVariables().toString());
+				inputVariables();
+				verify=true;
 			}
 		});
 		btnAddEmployee.setBounds(268, 227, 103, 23);
@@ -207,8 +208,11 @@ public class Window extends JFrame {
 		btnEnter.setBounds(207, 166, 89, 23);
 		contentPane.add(btnEnter);
 		
+			if(verify=true)
 		return arr;
-
+		
+		else
+			return null;
 		
 		
 	}
