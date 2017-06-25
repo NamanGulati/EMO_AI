@@ -34,17 +34,24 @@
          
             try
             {
-                
-                addEmployee(test, determineEmotions("{ \"url\": \"http://dreamicus.com/data/face/face-04.jpg\" }"));
+            	
+            	Window frame = new Window(employees);
+        		frame.setVisible(true);
+        		
+        		String [] arr = null;
+        			
+        		while(arr == null);
+        		{
+        			arr = frame.inputVariables();
+        		}
+        		
+        		addEmployee(arr, determineEmotions(arr[3]));
                 System.out.println(employees[0].getName());
                 System.out.println(employees[0].getAge());
                 System.out.println(employees[0].getPosition());
                 System.out.println(employees[0].getE().getScores().getNeutral());
                 System.out.println(employees[0].getPath());
                 
-            	Window frame = new Window(employees);
-        		frame.setVisible(true);
-
             }
             
             catch (Exception e)
@@ -94,10 +101,12 @@
     
         public static void addEmployee(String [] info, Emotions emos)
         {
-        	//employees[count] = new Employee(info[0], info[1], info[2], emos, info[3]);
+        	employees[count] = new Employee(info[0], info[1], info[2], emos, info[3]);
+        	/*
         	for(int i=0;i<employees.length-1;i++){
         		employees[i]=new Employee("Bob","54","Manager",emos,"C");
         	}
         	employees[employees.length-1]=new Employee("Bill","54","Manager",emos,"C");
+        	*/
         }
     }
