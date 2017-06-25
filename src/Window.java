@@ -200,7 +200,7 @@ public class Window extends JFrame {
 		
 		URL url;
 		try {
-			url = new URL(emp[index].getPath());
+			url = new URL("https://s-media-cache-ak0.pinimg.com/originals/41/88/e7/4188e742647bb9bca78a7e9dc46ccaa9.jpg");
 			ImageIcon image =new ImageIcon(url);
 			lblPicture = new JLabel(image);
 			lblPicture.setBounds(268, 63, 128, 110);
